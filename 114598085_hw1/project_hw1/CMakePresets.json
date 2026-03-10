@@ -1,0 +1,86 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 20,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    },
+    {
+      "name": "clang-base",
+      "hidden": true,
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "clang++"
+      }
+    },
+    {
+      "name": "gcc-base",
+      "hidden": true,
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "g++"
+      }
+    },
+    {
+      "name": "clang-ninja",
+      "inherits": "clang-base",
+      "binaryDir": "${sourceDir}/build/clang-ninja",
+      "generator": "Ninja"
+    },
+    {
+      "name": "clang-make",
+      "inherits": "clang-base",
+      "binaryDir": "${sourceDir}/build/clang-make",
+      "generator": "Unix Makefiles"
+    },
+    {
+      "name": "gcc-ninja",
+      "inherits": "gcc-base",
+      "binaryDir": "${sourceDir}/build/gcc-ninja",
+      "generator": "Ninja"
+    },
+    {
+      "name": "gcc-make",
+      "inherits": "gcc-base",
+      "binaryDir": "${sourceDir}/build/gcc-make",
+      "generator": "Unix Makefiles"
+    },
+    {
+      "name": "default",
+      "inherits": "base",
+      "binaryDir": "${sourceDir}/build",
+      "generator": "Ninja"
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "build-clang-ninja",
+      "configurePreset": "clang-ninja"
+    },
+    {
+      "name": "build-clang-make",
+      "configurePreset": "clang-make"
+    },
+    {
+      "name": "build-gcc-ninja",
+      "configurePreset": "gcc-ninja"
+    },
+    {
+      "name": "build-gcc-make",
+      "configurePreset": "gcc-make"
+    },
+    {
+      "name": "build-default",
+      "configurePreset": "default"
+    }
+  ]
+}
