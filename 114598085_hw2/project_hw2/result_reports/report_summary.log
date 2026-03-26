@@ -1,0 +1,27 @@
+Median filter benchmark (kernel, pad size, stride sweep):
+Best: radius=1 kernel=3x3 pad=5 stride=3x3 psnr_db=26.261679
+Top candidates:
+  #1 radius=1 kernel=3x3 pad=5 stride=3x3 psnr_db=26.261679 cost=715176
+  #2 radius=1 kernel=3x3 pad=4 stride=2x2 psnr_db=26.253272 cost=1599075
+  #3 radius=1 kernel=3x3 pad=2 stride=2x2 psnr_db=26.237209 cost=1583631
+  #4 radius=1 kernel=3x3 pad=2 stride=3x3 psnr_db=26.228043 cost=704862
+  #5 radius=1 kernel=3x3 pad=0 stride=2x2 psnr_db=26.215636 cost=1568259
+
+Gaussian filter benchmark (kernel, pad size, stride sweep):
+Best: radius=3 kernel=7x7 pad=5 stride=3x3 psnr_db=21.875982
+Top candidates:
+  #1 radius=3 kernel=7x7 pad=5 stride=3x3 psnr_db=21.875982 cost=3848803
+  #2 radius=3 kernel=7x7 pad=4 stride=2x2 psnr_db=21.874863 cost=8621991
+  #3 radius=3 kernel=7x7 pad=2 stride=2x2 psnr_db=21.858820 cost=8538299
+  #4 radius=3 kernel=7x7 pad=2 stride=3x3 psnr_db=21.848759 cost=3792943
+  #5 radius=3 kernel=7x7 pad=5 stride=1x1 psnr_db=21.847927 cost=34605564
+
+Q3 combined filter benchmark (coarse-to-fine):
+Best: order=median->gaussian median_radius=1 median_pad=5 gaussian_radius=1 gaussian_pad=5 psnr_db=26.524994
+Top candidates:
+  #1 order=median->gaussian median_radius=1 median_pad=5 gaussian_radius=1 gaussian_pad=5 psnr_db=26.524994 cost=13085280
+  #2 order=median->gaussian median_radius=1 median_pad=5 gaussian_radius=1 gaussian_pad=4 psnr_db=26.516552 cost=13022748
+  #3 order=median->gaussian median_radius=1 median_pad=4 gaussian_radius=1 gaussian_pad=5 psnr_db=26.513604 cost=13022748
+  #4 order=median->gaussian median_radius=1 median_pad=3 gaussian_radius=1 gaussian_pad=5 psnr_db=26.503669 cost=12960360
+  #5 order=median->gaussian median_radius=1 median_pad=5 gaussian_radius=1 gaussian_pad=3 psnr_db=26.502129 cost=12960360
+
